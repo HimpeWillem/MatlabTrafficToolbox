@@ -203,7 +203,7 @@ display(['total number of node updates: ',num2str(avg_it*length(normalNodes)+tot
                 for d_index = 1:totDest
                     %calculation sending flow
                     SF_d = TF{o,t-1,d_index}.*sum(ODmatrix(o_index,d_index,t-1))*dt;
-                    cvn_up(l,t,d_index)=cvn_up(l,t-1,d_index) + SF_d;
+                    cvn_up(l,t,d_index)=cvn_up(l,t-1,d_index) + SF_d(l_index);
                 end
             end
         end 
