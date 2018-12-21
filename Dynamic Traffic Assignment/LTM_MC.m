@@ -125,6 +125,7 @@ end
             red = SFCAP/sum(SF);    
             SF = red*SF;
         end
+        SF = max(0,SF);
     end
 
     %Nested function for finding receiving flows for a vertical queue
@@ -145,6 +146,7 @@ end
         time = timeSlices(t)-lengths(l)/wSpeeds(l);
         val = findCVN(sum(cvn_down(l,:,:),3),time,timeSlices,dt)+kJams(l)*lengths(l);
         RF = min(RF,val-sum(cvn_up(l,t-1,:),3));
+        RF = max(RF,0);
     end
 
     %Nested function for finding turning fractions
